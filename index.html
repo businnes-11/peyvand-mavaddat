@@ -31,45 +31,90 @@
             align-items: center;
             z-index: 9999;
             text-align: center;
-            padding: 20px;
-            transition: opacity 0.8s ease;
+            padding: 10px 20px 20px;
+            overflow-y: auto;
         }
         #splash.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        #splash .bismillah-img {
-            max-width: 70%;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 20px;
+            display: none;
         }
 
-        /* عنوان گروه - بخش اول مشکی */
+        /* ===== هدر با سه عکس ===== */
+        .splash-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            margin-top: 0px;
+            padding: 0 10px;
+        }
+        .splash-header .bismillah-img {
+            max-height: 280px;
+            width: auto;
+            border-radius: 15px;
+        }
+        .splash-header .new-image {
+            max-height: 280px;
+            width: auto;
+            border-radius: 15px;
+            border: 3px solid #004A7C;
+        }
+        .splash-header .qr-image {
+            max-height: 280px;
+            width: auto;
+            border-radius: 15px;
+            border: 3px solid #004A7C;
+            background: white;
+            padding: 5px;
+        }
+
+        /* ===== عنوان گروه ===== */
         #splash .group-name {
             font-family: 'B Titr', 'Tahoma', 'Vazirmatn', serif;
-            font-size: 16px;
+            font-size: 17px;
             font-weight: bold;
             color: #222;
-            margin-bottom: 5px;
-            line-height: 2.2;
+            margin-bottom: 4px;
+            line-height: 2;
         }
-        /* کلمه "پیوند مودَّت" - درشت‌تر و آبی کربنی */
         #splash .group-name .highlight {
             font-family: 'B Titr', 'Tahoma', 'Vazirmatn', serif;
-            font-size: 22px;
+            font-size: 24px;
             color: #004A7C;
             display: block;
             margin-top: 2px;
         }
 
+        /* ===== شعار ===== */
+        #splash .slogan {
+            font-family: 'B Titr', 'Tahoma', 'Vazirmatn', serif;
+            font-size: 19px;
+            font-weight: bold;
+            color: #004A7C;
+            margin: 4px 0;
+        }
+
+        /* ===== تک همسری ===== */
+        #splash .monogamy {
+            font-family: 'Tahoma', 'Vazirmatn', sans-serif;
+            font-size: 14px;
+            color: #222;
+            background: rgba(255,255,255,0.5);
+            padding: 5px 16px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 4px 0;
+            border: 1px solid #004A7C;
+        }
+
         /* ===== باکس مجوز رسمی ===== */
         #splash .license-box {
             background: rgba(255, 255, 255, 0.7);
-            padding: 8px 20px;
+            padding: 6px 18px;
             border-radius: 30px;
-            margin-top: 8px;
-            margin-bottom: 10px;
+            margin-top: 4px;
+            margin-bottom: 4px;
             border: 2px solid #004A7C;
             display: inline-block;
         }
@@ -88,43 +133,93 @@
             margin-right: 5px;
         }
 
+        /* ===== آیه ===== */
         #splash .ayah-box {
-            max-width: 700px;
-            margin: 8px auto;
-            padding: 12px 18px;
+            max-width: 750px;
+            margin: 4px auto;
+            padding: 8px 16px;
             background: rgba(255,255,255,0.6);
             border-radius: 25px;
         }
         #splash .ayah {
-            font-size: 1.2rem;
-            line-height: 2;
+            font-size: 1.15rem;
+            line-height: 2.1;
             color: #222;
             font-family: 'Tahoma', 'Vazirmatn', sans-serif;
         }
         #splash .ayah .blue-word {
             color: #004A7C;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
         #splash .ayah-ref {
             font-size: 0.8rem;
             color: #555;
-            margin-top: 3px;
+            margin-top: 2px;
             display: block;
             font-family: 'Tahoma', 'Vazirmatn', sans-serif;
         }
         #splash .translation {
             font-size: 0.95rem;
             color: #333;
-            max-width: 650px;
-            margin: 10px auto 0;
-            line-height: 1.8;
+            max-width: 750px;
+            margin: 4px auto 0;
+            line-height: 1.9;
+            font-family: 'Tahoma', 'Vazirmatn', sans-serif;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        #splash .translation br {
+            display: none;
+        }
+
+        /* ===== دکمه ورود به فرم ===== */
+        #splash .enter-btn {
+            background: #004A7C;
+            color: white;
+            border: none;
+            padding: 12px 45px;
+            border-radius: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 8px 0;
+            font-family: 'B Titr', 'Tahoma', 'Vazirmatn', serif;
+            box-shadow: 0 4px 15px rgba(0, 74, 124, 0.3);
+        }
+        #splash .enter-btn:hover {
+            background: #002f4a;
+            transform: scale(1.05);
+        }
+
+        /* ===== کانال‌ها ===== */
+        .splash-channels {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .splash-channels .channel-box {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
             font-family: 'Tahoma', 'Vazirmatn', sans-serif;
         }
-        #splash .loading {
-            margin-top: 20px;
-            font-size: 0.9rem;
+        .splash-channels .channel-box a {
             color: #004A7C;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .splash-channels .channel-box .channel-label {
+            font-weight: bold;
+            color: #004A7C;
+        }
+        .splash-channels .invite-text {
+            font-size: 13px;
+            color: #222;
+            margin-bottom: 2px;
             font-family: 'Tahoma', 'Vazirmatn', sans-serif;
         }
 
@@ -235,7 +330,7 @@
             font-family: 'B Titr', 'Tahoma', 'Vazirmatn', serif;
         }
 
-        /* ===== دکمه‌ها با رنگ صورتی ===== */
+        /* ===== دکمه‌ها ===== */
         .btn-group {
             display: flex;
             justify-content: center;
@@ -288,29 +383,12 @@
             border-right: 5px solid #b33;
         }
 
-        /* ===== کانال‌ها ===== */
-        .channels {
-            text-align: center;
-            margin-top: 20px;
+        /* ===== فیلدهای شرطی ===== */
+        .conditional-field {
+            display: none;
+        }
+        .conditional-field.active {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .channel-box {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 10px;
-            border-radius: 40px;
-            font-size: 13px;
-            font-family: 'Tahoma', 'Vazirmatn', sans-serif;
-        }
-        .channel-box a {
-            color: #004A7C;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .channel-box .channel-label {
-            font-weight: bold;
-            color: #004A7C;
         }
 
         /* ===== مودال قوانین ===== */
@@ -433,20 +511,22 @@
             .form-group label {
                 width: 100%;
             }
-            #splash .bismillah-img {
-                max-width: 85%;
-            }
-            #splash .group-name {
-                font-size: 14px;
+            .splash-header .bismillah-img,
+            .splash-header .new-image,
+            .splash-header .qr-image {
+                max-height: 160px;
             }
             #splash .group-name .highlight {
-                font-size: 18px;
+                font-size: 20px;
+            }
+            #splash .slogan {
+                font-size: 16px;
             }
             #splash .ayah {
                 font-size: 1rem;
             }
             #splash .ayah .blue-word {
-                font-size: 1.2rem;
+                font-size: 1.15rem;
             }
             #splash .translation {
                 font-size: 0.85rem;
@@ -482,13 +562,13 @@
             #splash .license-box .license-code {
                 font-size: 11px;
             }
-        }
-
-        .conditional-field {
-            display: none;
-        }
-        .conditional-field.active {
-            display: flex;
+            #splash .enter-btn {
+                font-size: 15px;
+                padding: 10px 30px;
+            }
+            .splash-header {
+                gap: 12px;
+            }
         }
     </style>
 </head>
@@ -496,44 +576,92 @@
 
     <!-- ===== اسپلش ===== -->
     <div id="splash">
-        <img src="https://www.beytoote.com/images/stories/fun/fun2239.jpg" alt="بسم الله الرحمن الرحیم" class="bismillah-img">
+        <!-- هدر با سه عکس: بسم‌الله | تشکل | QR -->
+        <div class="splash-header">
+            <img src="https://www.beytoote.com/images/stories/fun/fun2239.jpg" alt="بسم الله" class="bismillah-img">
+            <img src="./file_000000000a5071f4b2d96c949aa3e3e3.png" alt="تشکل جهادی" class="new-image">
+            <img src="./photo_2026-07-01_21-36-40.jpg" alt="QR Code" class="qr-image">
+        </div>
+
         <div class="group-name">
-            گروه جهادی و مردم‌نهاد همسان‌گزینی
+            تشکل جهادی و مردم‌نهاد
             <span class="highlight">پیوند مودَّت</span>
         </div>
 
-        <!-- ===== باکس مجوز رسمی ===== -->
+        <!-- شعار -->
+        <div class="slogan">💚 مودت انتخابی آگاهانه و پایدار 💚</div>
+
+        <!-- تک همسری -->
+        <div class="monogamy">✅ این مجموعه فقط در راستای ازدواج دائمی و تک‌همسری فعالیت می‌کند</div>
+
+        <!-- باکس مجوز رسمی -->
         <div class="license-box">
             <span class="license-text">✅ دارای مجوز رسمی</span>
             <span class="license-code">۳۲۸۰۴۰۰۹۳ | ۷۶۴۰۴۴۵۵</span>
         </div>
 
+        <!-- آیه -->
         <div class="ayah-box">
             <div class="ayah">
                 وَ مِنْ آیاتِهی اَنْ خَلَقَ لَکُمْ مِّنْ اَنْفُسِکُمْ اَزْواجًا لِّتَسْکُنُوا اِلَیْها<br>
                 وَ جَعَلَ بَیْنَکُمْ <span class="blue-word">مَوَدَّةً</span> وَ رَحْمَةً
             </div>
-            <span class="ayah-ref">آیه ۲۱ سوره روم</span>
+            <span class="ayah-ref">(سوره روم، آیه ۲۱)</span>
         </div>
         <div class="translation">
-            «و از نشانه‌های او اینکه همسرانی از جنس خودتان برای شما آفرید تا در کنار آنها آرامش یابید،<br>
-            و در میانتان مودت و رحمت قرار داد؛ در این نشانه‌هایی است برای گروهی که تفکر می‌کنند.»
+            «و از نشانه‌های لطف الهی آن است که برای شما، از جنس خودتان، همسرانی آفرید تا در کنارشان آرامش یابید و با آن‌ها انس و الفت بگیرید؛ و میان شما محبت و مهربانی قرار داد.»
         </div>
-        <div class="loading">⏳ در حال ورود به سایت...</div>
+
+        <!-- دکمه ورود -->
+        <button class="enter-btn" onclick="enterForm()">📝 ورود به فرم ثبت نام</button>
+
+        <!-- کانال‌ها -->
+        <div class="splash-channels">
+            <div class="invite-text">
+                🌹 برای اطلاع از اخبار، برنامه‌ها و ارتباط با ما، در کانال‌های زیر عضو شوید:
+            </div>
+            <div class="channel-box">
+                <span class="channel-label">📢 کانال ایتا پیوند مودَّت:</span>
+                <a href="https://eitaa.com/mardomnahadddd" target="_blank">https://eitaa.com/mardomnahadddd</a>
+            </div>
+            <div class="channel-box">
+                <span class="channel-label">🎙️ رادیو مودت:</span>
+                <a href="https://eitaa.com/joinchat/473761374C81557f7af6" target="_blank">https://eitaa.com/joinchat/473761374C81557f7af6</a>
+            </div>
+        </div>
     </div>
 
-    <!-- ===== محتوای اصلی ===== -->
-    <div id="mainContent" class="container active">
+    <!-- ===== محتوای اصلی (فرم) ===== -->
+    <div id="mainContent" class="container">
         <h1 class="form-title">📝 پیوند مودَّت</h1>
         <div class="form-sub">فرم جامع همسان‌گزینی (اطلاعات در گوگل شیت ذخیره میشود)</div>
 
         <form id="mainForm">
-            <!-- ===== همه فیلدها ===== -->
-            <div class="form-group"><label>جنسیت :</label><select id="gender" required><option value="">انتخاب</option><option>مرد</option><option>زن</option></select></div>
+            <!-- جنسیت -->
+            <div class="form-group">
+                <label>جنسیت :</label>
+                <select id="gender" required onchange="updateSpouseJobOptions()">
+                    <option value="">انتخاب</option>
+                    <option>مرد</option>
+                    <option>زن</option>
+                </select>
+            </div>
+
             <div class="form-group"><label>نام و نام خانوادگی :</label><input type="text" id="fullname" placeholder="مثال: رضا کریمی" required></div>
             <div class="form-group"><label>تاریخ تولد :</label><div class="double-field"><input type="number" id="birthYear" placeholder="سال" required><input type="number" id="birthMonth" placeholder="ماه 1-12" min="1" max="12" required><input type="number" id="birthDay" placeholder="روز 1-31" min="1" max="31" required></div></div>
             <div class="form-group"><label>قد (سانتی‌متر) :</label><input type="number" id="height" value="170" required></div>
             <div class="form-group"><label>وزن (کیلوگرم) :</label><input type="number" id="weight" value="65" required></div>
+
+            <!-- مذهب -->
+            <div class="form-group">
+                <label>مذهب :</label>
+                <select id="religion" required>
+                    <option value="">انتخاب</option>
+                    <option>سنی</option>
+                    <option>شیعه</option>
+                </select>
+            </div>
+
             <div class="form-group"><label>شغل پدر :</label><input type="text" id="fatherJob" required></div>
             <div class="form-group"><label>شغل مادر :</label><input type="text" id="motherJob" required></div>
             <div class="form-group"><label>رنگ پوست :</label><select id="skinColor" required><option value="">انتخاب</option><option>سفید</option><option>سبزه</option><option>گندمی</option><option>تیره</option></select></div>
@@ -541,7 +669,21 @@
             <div class="form-group"><label>نوع پوشش :</label><select id="dressCode" required><option value="">انتخاب</option><option>مذهبی</option><option>مدرن</option><option>اسپرت</option></select></div>
             <div class="form-group"><label>شغل :</label><select id="jobType" required><option value="">انتخاب</option><option>کارمند دولتی</option><option>کارمند خصوصی</option><option>شغل آزاد</option></select></div>
             <div class="form-group"><label>شرح شغل :</label><textarea id="jobDesc" rows="1" placeholder="اختیاری"></textarea></div>
-            <div class="form-group"><label>وضعیت جسمی :</label><select id="physicalStatus" required><option value="">انتخاب</option><option>سالم</option><option>معلول</option></select></div>
+
+            <!-- وضعیت جسمی با شرط معلولیت -->
+            <div class="form-group">
+                <label>وضعیت جسمی :</label>
+                <select id="physicalStatus" required onchange="toggleDisabilityField()">
+                    <option value="">انتخاب</option>
+                    <option>سالم</option>
+                    <option>معلول</option>
+                </select>
+            </div>
+            <div class="form-group conditional-field" id="disabilityField">
+                <label>توضیحات معلولیت :</label>
+                <textarea id="disabilityDesc" rows="2" placeholder="لطفاً توضیح دهید..."></textarea>
+            </div>
+
             <div class="form-group"><label>اهل دخانیات :</label><select id="smoking" required><option value="">انتخاب</option><option>خیر</option><option>بله سیگار</option><option>بله قلیان</option><option>بله هردو</option></select></div>
             <div class="form-group"><label>تعداد افراد خانواده :</label><input type="number" id="familyCount" value="4" required></div>
             <div class="form-group"><label>فرزند چندم :</label><input type="number" id="childOrder" value="1" required></div>
@@ -552,9 +694,11 @@
             <div class="form-group"><label>شماره تماس ۲ :</label><input type="tel" id="phone2" placeholder="09123456789"></div>
             <div class="form-group"><label>خصوصیات اخلاقی :</label><textarea id="personality" rows="1" placeholder="صبور، آرام..." required></textarea></div>
             <div class="form-group"><label>معیار همسر آینده :</label><textarea id="spouseCriteria" rows="1" placeholder="متدین، خوش اخلاق..." required></textarea></div>
+
+            <!-- سابقه ازدواج -->
             <div class="form-group"><label>سابقه ازدواج :</label><select id="marriageHistory" required><option value="">انتخاب</option><option value="مجرد">مجرد و بدون سابقه ازدواج</option><option value="نامزدی">مطلقه در دوران نامزدی جدا شدم</option><option value="بدون فرزند">مطلقه بدون فرزند هستم</option><option value="با فرزند">مطلقه دارای فرزند هستم</option><option value="همسر زنده">مطلقه همسر قبلی در قید حیات هستند</option><option value="فوت شده">همسر فوت شده</option></select></div>
-            
-            <!-- فیلدهای شرطی -->
+
+            <!-- فیلدهای شرطی سابقه ازدواج -->
             <div class="form-group conditional-field" id="marriageDurationField"><label>مدت زندگی مشترک (ماه) :</label><input type="text" id="marriageDuration" placeholder="مثلاً ۶ ماه"></div>
             <div class="form-group conditional-field" id="marriageRegisteredField"><label>در شناسنامه قید شده است؟ :</label><select id="marriageRegistered"><option value="">انتخاب</option><option>بله</option><option>خیر</option></select></div>
             <div class="form-group conditional-field" id="childGenderField"><label>جنسیت فرزند :</label><select id="childGender"><option value="">انتخاب</option><option>پسر</option><option>دختر</option></select></div>
@@ -563,19 +707,64 @@
 
             <div class="form-group"><label>از کدام استان‌ها می‌پذیرید؟ :</label><select id="acceptProvinces" required><option value="">انتخاب</option><option>فرقی ندارد</option><option>فقط استان محل سکونت خودم</option></select></div>
             <div class="form-group"><label>از کدام شهر می‌پذیرید؟ :</label><select id="acceptCities" required><option value="">انتخاب</option><option>شهر محل سکونت خودم</option><option>سایر شهرهای استان خودم</option><option>فرقی ندارد</option></select></div>
-            <div class="form-group"><label>با کدام اصناف ازدواج می‌کنید؟ :</label><select id="spouseJobAccept" required><option value="">انتخاب</option><option>محدودیتی ندارم</option><option>فقط روحانی</option><option>فقط نظامی</option><option>فقط کارمند</option><option value="آزاد">فقط شغل آزاد</option></select></div>
+
+            <!-- شغل همسر ایده‌آل (با تغییر بر اساس جنسیت) -->
+            <div class="form-group">
+                <label>با کدام اصناف ازدواج می‌کنید؟ :</label>
+                <select id="spouseJobAccept" required>
+                    <option value="">انتخاب</option>
+                    <option>محدودیتی ندارم</option>
+                    <option>فقط روحانی</option>
+                    <option>فقط نظامی</option>
+                    <option>فقط کارمند</option>
+                    <option value="آزاد">فقط شغل آزاد</option>
+                </select>
+            </div>
+
             <div class="form-group conditional-field" id="freeJobField"><label>لطفاً شغل آزاد مورد نظر خود را توضیح دهید :</label><textarea id="freeJobDesc" rows="1" placeholder="مثلاً: نجاری، خیاطی، ..."></textarea></div>
             <div class="form-group"><label>اختلاف سنی مطلوب :</label><select id="ageDiff" required><option value="">انتخاب</option><option>کوچکتر می‌پذیرم</option><option>همسن می‌پذیرم</option><option>بزرگتر می‌پذیرم</option><option>فرقی ندارد</option></select></div>
+
+            <!-- فیلد جدید: میزان حداکثر و حداقل تفاوت سنی (اختیاری) -->
+            <div class="form-group">
+                <label>میزان حداکثر و حداقل تفاوت سنی :</label>
+                <input type="text" id="ageRange" placeholder="مثلاً ۳ تا ۵ سال (اختیاری)">
+            </div>
+
             <div class="form-group"><label>حداقل تحصیلات همسر :</label><select id="minEduSpouse" required><option value="">انتخاب</option><option>بدون تحصیلات</option><option>سیکل</option><option>دیپلم</option><option>فوق دیپلم</option><option>لیسانس</option><option>فوق لیسانس</option><option>دکترا</option></select></div>
             <div class="form-group"><label>تحصیلات خودتان :</label><select id="selfEducation" required><option value="">انتخاب</option><option>زیر دیپلم</option><option>دیپلم</option><option>فوق دیپلم</option><option>لیسانس</option><option>فوق لیسانس</option><option>دکترا</option></select></div>
             <div class="form-group"><label>میزان درآمد ماهیانه :</label><select id="income" required><option value="">انتخاب</option><option>کم</option><option>متوسط</option><option>زیاد</option></select></div>
             <div class="form-group"><label>وضعیت دارایی :</label><select id="assets" required><option value="">انتخاب</option><option>خانه و ماشین دارم</option><option>خانه و ماشین ندارم</option><option>فقط خانه دارم</option><option>فقط ماشین دارم</option><option>سایر دارم</option></select></div>
             <div class="form-group"><label>توضیحات تکمیلی :</label><textarea id="moreInfo" rows="1" required></textarea></div>
-            <div class="form-group"><label>آیدی ایتا :</label><input type="text" id="eitaaId" placeholder="@username (اختیاری)"></div>
+
+            <!-- آیدی‌ها (ایتا اجباری، بقیه اختیاری) -->
+            <div class="form-group"><label>آیدی ایتا :</label><input type="text" id="eitaaId" placeholder="@username" required></div>
             <div class="form-group"><label>آیدی روبیکا :</label><input type="text" id="rubikaId" placeholder="@id (اختیاری)"></div>
             <div class="form-group"><label>آیدی بله :</label><input type="text" id="baleId" placeholder="@id (اختیاری)"></div>
             <div class="form-group"><label>آیدی سروش :</label><input type="text" id="soroushId" placeholder="@id (اختیاری)"></div>
-            <div class="form-group"><label>نحوه ارتباط با شما :</label><select id="contactMethod" required><option value="">انتخاب</option><option>ایتا</option><option>روبیکا</option><option>بله</option><option>سروش</option><option>تلفن</option></select></div>
+
+            <!-- نحوه ارتباط با گزینه جدید "ارتباط با رابط" -->
+            <div class="form-group">
+                <label>نحوه ارتباط با شما :</label>
+                <select id="contactMethod" required onchange="toggleContactFields()">
+                    <option value="">انتخاب</option>
+                    <option>ایتا</option>
+                    <option>روبیکا</option>
+                    <option>بله</option>
+                    <option>سروش</option>
+                    <option>تلفن</option>
+                    <option value="رابط">ارتباط با رابط</option>
+                </select>
+            </div>
+
+            <!-- فیلدهای شرطی برای ارتباط با رابط -->
+            <div class="form-group conditional-field" id="contactAgentPhoneField">
+                <label>شماره تماس رابط :</label>
+                <input type="tel" id="agentPhone" placeholder="09123456789">
+            </div>
+            <div class="form-group conditional-field" id="contactAgentIdField">
+                <label>آیدی فضای مجازی رابط :</label>
+                <input type="text" id="agentId" placeholder="@username">
+            </div>
 
             <!-- قوانین -->
             <div class="checkbox-group">
@@ -595,18 +784,6 @@
         </form>
 
         <div id="messageArea"></div>
-
-        <!-- ===== کانال‌ها ===== -->
-        <div class="channels">
-            <div class="channel-box">
-                <span class="channel-label">📢 کانال ایتا پیوند مودَّت:</span>
-                <a href="https://eitaa.com/mardomnahadddd" target="_blank">https://eitaa.com/mardomnahadddd</a>
-            </div>
-            <div class="channel-box">
-                <span class="channel-label">🎙️ رادیو مودت:</span>
-                <a href="https://eitaa.com/joinchat/473761374C81557f7af6" target="_blank">https://eitaa.com/joinchat/473761374C81557f7af6</a>
-            </div>
-        </div>
     </div>
 
     <!-- ===== مودال قوانین ===== -->
@@ -614,58 +791,54 @@
         <div class="modal-box">
             <h2>📜 قوانین و مقررات عضویت</h2>
             <div class="rules-text">
-                <!-- ===== قوانین کامل (همان‌هایی که قبلاً بود) ===== -->
                 <span class="section-title">🛡️ بخش اول: امنیت مالی و جلوگیری از کلاهبرداری</span>
                 <div class="warning">⚠️ هشدار جدی:</div>
                 <p>با توجه به افزایش تلاش‌های کلاهبرداران برای سوءاستفاده از نام این تشکل، مدیریت جهت حفظ حقوق و اموال اعضا، پروتکل‌های امنیتی زیر را الزامی می‌داند:</p>
                 <ul class="number-list">
-                    <li><strong>حصرِ مسئولیت مالی:</strong> کلیه امور مربوط به واریز مبالغ و هزینه‌های خدمات، صرفاً و منحصراً از طریق آیدی رسمی و تاییدشده مدیریت انجام می‌پذیرد. از هرگونه فعالیت مالی با اشخاص دیگر یا آیدی‌های متفرقه، اکیداً خودداری نمایید.</li>
-                    <li><strong>شناسایی هویت واسطه‌ها:</strong> آیدی رسمی واسطه‌گران «تشکل پیوند مودت»، تنها و تنها همان آیدی است که در پیام‌های ثابت (Pinned) مدیر کانال درج شده است. هرگونه ادعای دیگری مبنی بر وابستگی به این تشکل، فاقد اعتبار قانونی بوده و از سوی ما مسئولیت پذیرفته نمی‌شود.</li>
-                    <li><strong>مقابله با پیام‌های خصوصی (PV) فریبنده:</strong> هرگونه پیام دریافتی در فضای خصوصی (PV) که از سوی شخصی با ادعای «معرف تشکل» جهت دریافت وجه برای معرفی کیس ارسال شود، اقدام کلاهبرداری تلقی شده و از سوی ما پشتیبانی نمی‌شود.</li>
-                    <li><strong>عدم مسئولیت در قبال تراکنش‌های خارج از پلتفرم:</strong> تشکل پیوند مودت هیچ‌گونه مسئولیتی در قبال مبالغ واریز شده به حساب‌های شخصی یا افراد غیر از مدیریت رسمی نخواهد داشت. مسئولیت هرگونه جابه‌جایی وجه خارج از مسیر رسمی، بر عهده خود کاربر است.</li>
-                    <li><strong>مکانیزم تایید نهایی:</strong> در صورت مشاهده هرگونه فعالیت مشکوک یا پیام‌های حاوی درخواست پول، حتماً با آیدی اصلی مدیریت تماس بگیرید تا وضعیت صحت آن پیام برای شما بررسی شود.</li>
+                    <li><strong>حصرِ مسئولیت مالی:</strong> کلیه امور مربوط به واریز مبالغ و هزینه‌های خدمات، صرفاً و منحصراً از طریق آیدی رسمی و تاییدشده مدیریت انجام می‌پذیرد.</li>
+                    <li><strong>شناسایی هویت واسطه‌ها:</strong> آیدی رسمی واسطه‌گران «تشکل پیوند مودت»، تنها و تنها همان آیدی است که در پیام‌های ثابت مدیر کانال درج شده است.</li>
+                    <li><strong>مقابله با پیام‌های خصوصی فریبنده:</strong> هرگونه پیام دریافتی در فضای خصوصی با ادعای «معرف تشکل» جهت دریافت وجه، کلاهبرداری است.</li>
+                    <li><strong>عدم مسئولیت در قبال تراکنش‌های خارج از پلتفرم:</strong> تشکل پیوند مودت مسئولیتی در قبال مبالغ واریز شده به حساب‌های شخصی ندارد.</li>
+                    <li><strong>مکانیزم تایید نهایی:</strong> در صورت مشاهده فعالیت مشکوک، با آیدی اصلی مدیریت تماس بگیرید.</li>
                 </ul>
 
                 <span class="section-title">🤝 بخش دوم: پروتکل آشنایی و ارتباط موثر</span>
                 <div class="blue-box">
                     <strong>📜 پروتکل‌های رفتاری و استانداردهای جلسات حضوری</strong>
-                    <p style="margin-top:5px;">(جهت حفظ آرامش، امنیت و عزت نفس تمامی اعضا، رعایت موارد زیر الزامی است)</p>
                 </div>
                 <ul class="number-list">
-                    <li><strong>شفافیت در اطلاعات:</strong> برای پیشبرد صحیح فرآیند، ارائه مشخصات فردی به طرف مقابل یک ضرورت است. لطفاً توجه داشته باشید که ارسال تصاویر باید در چارچوب موازین شرعی و اخلاقی (به‌ویژه برای خانم‌ها: رعایت کامل حجاب) صورت گیرد.</li>
-                    <li><strong>تدریج در ارتباط:</strong> پیشنهاد می‌شود پس از طی یک دوره آشنایی اولیه و اطمینان از هم‌سوییِ ذهنی، در صورت تمایل به ادامه مسیر، شماره تماس منزل را جهت هماهنگی رسمی با خانواده‌ها ارائه دهید.</li>
-                    <li><span class="warning">⚠️ محیط ملاقات:</span> جلسات حضوری باید حتماً در اماکن عمومی و پرتردد برگزار شود. از حضور در محیط‌های خلوت یا سوار شدن به خودروی طرف مقابل به هیچ عنوان خودداری نمایید.</li>
-                    <li><span class="highlight">✅ خدمات ویژه تشکل:</span> جهت رفع دغدغه‌های امنیتی و فراهم کردن فضایی آرام و محترمانه، «تشکل پیوند مودت» محیطی امن و مجهز را جهت برگزاری دیدارهای اولیه در اختیار شما قرار داده است. شما می‌توانید با هماهنگی قبلی و نوبت‌گیری از طریق مدیریت، از این امکان استفاده نمایید.</li>
-                    <li><span class="warning">⚠️ حضور همراه:</span> برای حفظ آرامش خاطر، توصیه اکید می‌شود در اولین ملاقات، یک همراه (دوست یا عضو خانواده) در نزدیکی محل قرار حضور داشته باشد.</li>
-                    <li><span class="warning">⚠️ اعتبار مستندات:</span> از اعتماد به تصاویر ارسالی از مدارک شناسایی یا استخدامی (به دلیل امکان جعل دیجیتال) پرهیز کنید. صحت مدارک تنها از طریق بررسی حضوری یا با هماهنگی مستقیم خانواده‌ها قابل استناد است.</li>
-                    <li><span class="warning">⚠️ حفظ عزت و کرامت، ریشه در مسیرهای درست دارد.</span> توصیه می‌شود از ورود به روابط طولانی‌مدت و پنهانی که بدون اطلاع خانواده است، پرهیز کنید؛ چرا که این مسیرها معمولاً با چالش‌های روحی و اجتماعی سنگینی همراه هستند.</li>
-                    <li>هرگونه برخورد نامناسب، فشار برای ملاقات زودهنگام یا عدم رعایت حریم خصوصی، منجر به قطع همکاری با فرد مذکور از سوی تشکل خواهد شد.</li>
+                    <li><strong>شفافیت در اطلاعات:</strong> ارائه مشخصات فردی به طرف مقابل ضروری است.</li>
+                    <li><strong>تدریج در ارتباط:</strong> پس از اطمینان از هم‌سویی، شماره تماس منزل را ارائه دهید.</li>
+                    <li><span class="warning">⚠️ محیط ملاقات:</span> جلسات حضوری در اماکن عمومی برگزار شود.</li>
+                    <li><span class="highlight">✅ خدمات ویژه تشکل:</span> محیطی امن برای دیدارهای اولیه فراهم شده است.</li>
+                    <li><span class="warning">⚠️ حضور همراه:</span> در اولین ملاقات، یک همراه داشته باشید.</li>
+                    <li><span class="warning">⚠️ اعتبار مستندات:</span> به تصاویر مدارک اعتماد نکنید، صحت را حضوری بررسی کنید.</li>
                 </ul>
 
-                <span class="section-title">🚜 بخش سوم: دلایل حذف فرم از کانال</span>
+                <span class="section-title">🚜 بخش سوم: دلایل حذف فرم</span>
                 <ul class="number-list">
                     <li>🌀 خود فرد درخواست حذف داده است</li>
-                    <li>🌀 اگه خصوصی و آیدی یا نام کاربری فرد تغییر کرده و به همکاران مجموعه، اطلاع رسانی نشده است</li>
-                    <li>🌀 اگر صاحب فرم مدت زیادی، مثلاً یک هفته یا بالاتر آنلاین نبوده و پاسخگو نباشد</li>
-                    <li>🌀 اگر خادمین مجموعه، پیامی برای صاحب فرم ارسال کرده و ایشان پیام را دیده و نهایتاً بعد از ۳ روز، پاسخی ندهند</li>
-                    <li><span class="warning">⚠️ بی احترامی به خادمین مجموعه، و ارسال پیام‌های نامناسب و توهین‌آمیز برای ایشان و یا مراجعه‌کنندگان</span></li>
-                    <li><span class="warning">⚠️ دریافت گزارش مبنی بر اینکه صاحب فرم با قصد مزاحمت و یا ایجاد سرگرمی ثبت‌نام و یا فرم را صادقانه پر نکرده و با دروغ گفتن، نکات مهمی را مخفی کرده است، مثلاً: داشتن بیماری خاصی و صعب‌العلاج / اعتیاد / ازدواج قبلی / و یا ....</span></li>
+                    <li>🌀 تغییر آیدی یا نام کاربری بدون اطلاع</li>
+                    <li>🌀 عدم پاسخگویی به مدت یک هفته</li>
+                    <li>🌀 عدم پاسخ به پیام خادمین پس از ۳ روز</li>
+                    <li><span class="warning">⚠️ بی احترامی به خادمین یا مراجعه‌کنندگان</span></li>
+                    <li><span class="warning">⚠️ ثبت‌نام با قصد مزاحمت یا پنهان‌کاری</span></li>
                 </ul>
                 <div class="red-line">
-                    <strong>🚨 موارد فوق باعث #حذف‌دائمی فرم از کانال و #بلاک‌شدن می‌گردد.</strong>
+                    <strong>🚨 موارد فوق باعث #حذف‌دائمی فرم و #بلاک‌شدن می‌گردد.</strong>
                 </div>
 
-                <span class="section-title">🔴 بخش چهارم: خط قرمز ما - صداقت و شفافیت</span>
+                <span class="section-title">🔴 بخش چهارم: خط قرمز - صداقت و شفافیت</span>
                 <div class="green-box">
-                    <p>از آنجا که «پیوند مودّت» بر پایه اعتماد و کرامت انسانی بنا شده است، صداقت در ارائه اطلاعات، «تعهد اخلاقی و الزامی» تمامی متقاضیان است.</p>
+                    <p>صداقت در ارائه اطلاعات، «تعهد اخلاقی و الزامی» تمامی متقاضیان است.</p>
                 </div>
                 <ul class="number-list">
-                    <li><strong>تعهد به حقیقت:</strong> تمامی اطلاعات درج شده در فرم (اعم از وضعیت تاهل، تحصیلات، شرایط شغلی، سن و...) باید دقیق و مطابق با واقعیت باشد.</li>
-                    <li><strong>عواقب تخلف:</strong> در صورت احراز هرگونه «عدم صداقت»، «ارائه اطلاعات خلاف واقع» یا «پنهان‌کاری آگاهانه»، عضویت فرد <span class="warning">بدون اخطار قبلی</span> برای همیشه لغو شده و نام وی در لیست سیاه (Blacklist) قرار خواهد گرفت.</li>
-                    <li><strong>حفظ حقوق دیگران:</strong> با توجه به اینکه وقت و احساسات سایر کاربران برای ما ارزشمند است، هرگونه فریب‌کاریِ فرد، حقِ پیگیری برای جبران زمان تلف شده‌ی سایرین را برای مدیریت محفوظ می‌دارد.</li>
+                    <li><strong>تعهد به حقیقت:</strong> تمامی اطلاعات باید دقیق و مطابق با واقعیت باشد.</li>
+                    <li><strong>عواقب تخلف:</strong> در صورت عدم صداقت، عضویت لغو و نام در لیست سیاه قرار می‌گیرد.</li>
+                    <li><strong>حفظ حقوق دیگران:</strong> فریب‌کاری، حق پیگیری برای جبران زمان تلف شده را محفوظ می‌دارد.</li>
                 </ul>
                 <div style="text-align:center; margin-top:15px; color:#004A7C; font-weight:bold; font-size:15px;">
-                    💚 ما اینجا هستیم تا مسیر خوشبختی را هموار کنیم. صداقت شما، اولین قدم در مسیرِ تشکیلِ خانواده است.
+                    💚 ما اینجا هستیم تا مسیر خوشبختی را هموار کنیم.
                 </div>
             </div>
             <button onclick="closeRules()" class="close-btn">بستن</button>
@@ -679,15 +852,15 @@
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz28QaBPiR_HMAeIEKPUYaZRq_h34YGU0J2Qof1YutVaYGd-cTwSUFboZGRi0V1zcvd/exec";
 
         // =============================================
-        // اسپلش ۵ ثانیه‌ای
+        // ورود به فرم
         // =============================================
-        setTimeout(() => {
+        function enterForm() {
             document.getElementById('splash').classList.add('hidden');
             document.getElementById('mainContent').classList.add('active');
-        }, 5000);
+        }
 
         // =============================================
-        // قوانین (مودال)
+        // قوانین
         // =============================================
         function showRules(e) {
             e.preventDefault();
@@ -724,6 +897,63 @@
             const val = this.value;
             document.getElementById('freeJobField').classList.toggle('active', val === 'آزاد');
         });
+
+        function toggleDisabilityField() {
+            const val = document.getElementById('physicalStatus').value;
+            document.getElementById('disabilityField').classList.toggle('active', val === 'معلول');
+        }
+
+        function toggleContactFields() {
+            const val = document.getElementById('contactMethod').value;
+            const isAgent = val === 'رابط';
+            document.getElementById('contactAgentPhoneField').classList.toggle('active', isAgent);
+            document.getElementById('contactAgentIdField').classList.toggle('active', isAgent);
+        }
+
+        function updateSpouseJobOptions() {
+            const gender = document.getElementById('gender').value;
+            const select = document.getElementById('spouseJobAccept');
+            const currentValue = select.value;
+
+            select.innerHTML = '';
+
+            if (gender === 'مرد') {
+                const options = [
+                    { value: '', text: 'انتخاب' },
+                    { value: 'محدودیتی ندارم', text: 'محدودیتی ندارم' },
+                    { value: 'خانه دار', text: 'خانه‌دار' },
+                    { value: 'کارمند', text: 'کارمند' },
+                    { value: 'روحانی', text: 'روحانی' }
+                ];
+                options.forEach(opt => {
+                    const option = document.createElement('option');
+                    option.value = opt.value;
+                    option.textContent = opt.text;
+                    if (opt.value === currentValue && currentValue !== '') {
+                        option.selected = true;
+                    }
+                    select.appendChild(option);
+                });
+            } else {
+                const options = [
+                    { value: '', text: 'انتخاب' },
+                    { value: 'محدودیتی ندارم', text: 'محدودیتی ندارم' },
+                    { value: 'فقط روحانی', text: 'فقط روحانی' },
+                    { value: 'فقط نظامی', text: 'فقط نظامی' },
+                    { value: 'فقط کارمند', text: 'فقط کارمند' },
+                    { value: 'آزاد', text: 'فقط شغل آزاد' }
+                ];
+                options.forEach(opt => {
+                    const option = document.createElement('option');
+                    option.value = opt.value;
+                    option.textContent = opt.text;
+                    if (opt.value === currentValue && currentValue !== '') {
+                        option.selected = true;
+                    }
+                    select.appendChild(option);
+                });
+            }
+        }
 
         // =============================================
         // ذخیره‌سازی و ارسال به شیت
@@ -780,16 +1010,22 @@
                 return;
             }
 
+            const eitaaId = document.getElementById('eitaaId').value.trim();
+            if (!eitaaId) {
+                showMessage('❌ لطفاً آیدی ایتا را وارد کنید', true);
+                return;
+            }
+
             const requiredFields = [
                 'gender', 'fullname', 'birthYear', 'birthMonth', 'birthDay',
-                'height', 'weight', 'fatherJob', 'motherJob',
+                'height', 'weight', 'religion', 'fatherJob', 'motherJob',
                 'skinColor', 'eyeColor', 'dressCode', 'jobType',
                 'physicalStatus', 'smoking', 'familyCount', 'childOrder',
                 'province', 'city', 'neighborhood', 'phone1',
                 'personality', 'spouseCriteria', 'marriageHistory',
                 'acceptProvinces', 'acceptCities', 'spouseJobAccept',
                 'ageDiff', 'minEduSpouse', 'selfEducation',
-                'income', 'assets', 'moreInfo', 'contactMethod'
+                'income', 'assets', 'moreInfo', 'eitaaId', 'contactMethod'
             ];
 
             for (let id of requiredFields) {
@@ -815,6 +1051,7 @@
                 birthDay: document.getElementById('birthDay').value,
                 height: document.getElementById('height').value,
                 weight: document.getElementById('weight').value,
+                religion: document.getElementById('religion').value,
                 fatherJob: document.getElementById('fatherJob').value,
                 motherJob: document.getElementById('motherJob').value,
                 skinColor: document.getElementById('skinColor').value,
@@ -823,6 +1060,7 @@
                 jobType: document.getElementById('jobType').value,
                 jobDesc: document.getElementById('jobDesc').value,
                 physicalStatus: document.getElementById('physicalStatus').value,
+                disabilityDesc: document.getElementById('disabilityDesc').value || '',
                 smoking: document.getElementById('smoking').value,
                 familyCount: document.getElementById('familyCount').value,
                 childOrder: document.getElementById('childOrder').value,
@@ -844,16 +1082,19 @@
                 spouseJobAccept: document.getElementById('spouseJobAccept').value,
                 freeJobDesc: document.getElementById('freeJobDesc').value || '',
                 ageDiff: document.getElementById('ageDiff').value,
+                ageRange: document.getElementById('ageRange').value || '',
                 minEduSpouse: document.getElementById('minEduSpouse').value,
                 selfEducation: document.getElementById('selfEducation').value,
                 income: document.getElementById('income').value,
                 assets: document.getElementById('assets').value,
                 moreInfo: document.getElementById('moreInfo').value,
-                eitaaId: document.getElementById('eitaaId').value || '',
+                eitaaId: document.getElementById('eitaaId').value.trim(),
                 rubikaId: document.getElementById('rubikaId').value || '',
                 baleId: document.getElementById('baleId').value || '',
                 soroushId: document.getElementById('soroushId').value || '',
                 contactMethod: document.getElementById('contactMethod').value,
+                agentPhone: document.getElementById('agentPhone').value || '',
+                agentId: document.getElementById('agentId').value || '',
                 timestamp: new Date().toLocaleString('fa-IR'),
                 decade: decade
             };
@@ -866,6 +1107,7 @@
             document.getElementById('fullname').value = '';
             document.getElementById('phone1').value = '';
             document.getElementById('phone2').value = '';
+            document.getElementById('eitaaId').value = '';
         };
 
         // =============================================
@@ -884,6 +1126,7 @@
         };
 
         loadFromLocal();
+        updateSpouseJobOptions();
     </script>
 
 </body>
