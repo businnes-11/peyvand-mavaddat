@@ -38,7 +38,7 @@
             display: none;
         }
 
-        /* ===== هدر با سه عکس ===== */
+        /* ===== هدر با سه عکس (۱۶۰px پایین‌تر) ===== */
         .splash-header {
             display: flex;
             align-items: center;
@@ -46,7 +46,7 @@
             gap: 25px;
             margin-bottom: 6px;
             flex-wrap: wrap;
-            margin-top: 0px;
+            margin-top: 160px; /* ← ۱۶۰px پایین‌تر (۱۰ خط) */
             padding: 0 10px;
         }
         .splash-header .bismillah-img {
@@ -576,7 +576,7 @@
 
     <!-- ===== اسپلش ===== -->
     <div id="splash">
-        <!-- هدر با سه عکس: بسم‌الله | تشکل | QR -->
+        <!-- هدر با سه عکس (۱۶۰px پایین‌تر) -->
         <div class="splash-header">
             <img src="https://www.beytoote.com/images/stories/fun/fun2239.jpg" alt="بسم الله" class="bismillah-img">
             <img src="./file_000000000a5071f4b2d96c949aa3e3e3.png" alt="تشکل جهادی" class="new-image">
@@ -846,22 +846,13 @@
     </div>
 
     <script>
-        // =============================================
-        // لینک گوگل شیت
-        // =============================================
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz28QaBPiR_HMAeIEKPUYaZRq_h34YGU0J2Qof1YutVaYGd-cTwSUFboZGRi0V1zcvd/exec";
 
-        // =============================================
-        // ورود به فرم
-        // =============================================
         function enterForm() {
             document.getElementById('splash').classList.add('hidden');
             document.getElementById('mainContent').classList.add('active');
         }
 
-        // =============================================
-        // قوانین
-        // =============================================
         function showRules(e) {
             e.preventDefault();
             document.getElementById('rulesModal').style.display = 'flex';
@@ -876,9 +867,6 @@
             if (e.target === this) closeRules();
         });
 
-        // =============================================
-        // منطق شرطی‌ها
-        // =============================================
         document.getElementById('marriageHistory').addEventListener('change', function() {
             const val = this.value;
             document.querySelectorAll('.conditional-field').forEach(el => el.classList.remove('active'));
@@ -955,9 +943,6 @@
             }
         }
 
-        // =============================================
-        // ذخیره‌سازی و ارسال به شیت
-        // =============================================
         let usersDatabase = [];
 
         function loadFromLocal() {
@@ -989,9 +974,6 @@
             }
         }
 
-        // =============================================
-        // ثبت اطلاعات
-        // =============================================
         document.getElementById('submitBtn').onclick = async function() {
             if (!document.getElementById('rulesCheck').checked) {
                 showMessage('❌ لطفاً ابتدا قوانین و مقررات را مطالعه و تأیید کنید', true);
@@ -1110,9 +1092,6 @@
             document.getElementById('eitaaId').value = '';
         };
 
-        // =============================================
-        // خروجی JSON
-        // =============================================
         document.getElementById('exportBtn').onclick = function() {
             if (usersDatabase.length === 0) {
                 showMessage('هیچ داده‌ای برای خروجی وجود ندارد', true);
