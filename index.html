@@ -46,7 +46,7 @@
             gap: 25px;
             margin-bottom: 6px;
             flex-wrap: wrap;
-            margin-top: 160px; /* ← ۱۶۰px پایین‌تر (۱۰ خط) */
+            margin-top: 160px;
             padding: 0 10px;
         }
         .splash-header .bismillah-img {
@@ -640,7 +640,7 @@
             <!-- جنسیت -->
             <div class="form-group">
                 <label>جنسیت :</label>
-                <select id="gender" required onchange="updateSpouseJobOptions()">
+                <select id="gender" required onchange="updateSpouseJobOptions(); toggleWomenCoverField();">
                     <option value="">انتخاب</option>
                     <option>مرد</option>
                     <option>زن</option>
@@ -666,7 +666,29 @@
             <div class="form-group"><label>شغل مادر :</label><input type="text" id="motherJob" required></div>
             <div class="form-group"><label>رنگ پوست :</label><select id="skinColor" required><option value="">انتخاب</option><option>سفید</option><option>سبزه</option><option>گندمی</option><option>تیره</option></select></div>
             <div class="form-group"><label>رنگ چشم :</label><select id="eyeColor" required><option value="">انتخاب</option><option>قهوه‌ای</option><option>مشکی</option><option>فندقی</option><option>سبز</option><option>آبی</option></select></div>
-            <div class="form-group"><label>نوع پوشش :</label><select id="dressCode" required><option value="">انتخاب</option><option>مذهبی</option><option>مدرن</option><option>اسپرت</option></select></div>
+
+            <!-- ===== فیلد شرطی جدید: نوع پوشش برای خانم‌ها ===== -->
+            <div class="form-group conditional-field" id="womenCoverField">
+                <label>نوع پوشش :</label>
+                <select id="womenCover">
+                    <option value="">انتخاب</option>
+                    <option>چادری و عبا</option>
+                    <option>مانتویی و محجبه</option>
+                    <option>معمولی</option>
+                </select>
+            </div>
+
+            <!-- ===== فیلد نوع پوشش قدیمی (فقط برای آقایان) ===== -->
+            <div class="form-group conditional-field" id="dressCodeField">
+                <label>نوع پوشش :</label>
+                <select id="dressCode" required>
+                    <option value="">انتخاب</option>
+                    <option>مذهبی</option>
+                    <option>مدرن</option>
+                    <option>اسپرت</option>
+                </select>
+            </div>
+
             <div class="form-group"><label>شغل :</label><select id="jobType" required><option value="">انتخاب</option><option>کارمند دولتی</option><option>کارمند خصوصی</option><option>شغل آزاد</option></select></div>
             <div class="form-group"><label>شرح شغل :</label><textarea id="jobDesc" rows="1" placeholder="اختیاری"></textarea></div>
 
@@ -867,6 +889,7 @@
             if (e.target === this) closeRules();
         });
 
+        // ===== فیلدهای شرطی =====
         document.getElementById('marriageHistory').addEventListener('change', function() {
             const val = this.value;
             document.querySelectorAll('.conditional-field').forEach(el => el.classList.remove('active'));
@@ -896,6 +919,25 @@
             const isAgent = val === 'رابط';
             document.getElementById('contactAgentPhoneField').classList.toggle('active', isAgent);
             document.getElementById('contactAgentIdField').classList.toggle('active', isAgent);
+        }
+
+        // ===== تابع جدید برای نمایش فیلد پوشش خانم‌ها =====
+        function toggleWomenCoverField() {
+            const gender = document.getElementById('gender').value;
+            const womenField = document.getElementById('womenCoverField');
+            const dressField = document.getElementById('dressCodeField');
+            
+            if (gender === 'زن') {
+                womenField.classList.add('active');
+                dressField.classList.remove('active');
+                document.getElementById('dressCode').removeAttribute('required');
+                document.getElementById('womenCover').setAttribute('required', 'required');
+            } else {
+                womenField.classList.remove('active');
+                dressField.classList.add('active');
+                document.getElementById('womenCover').removeAttribute('required');
+                document.getElementById('dressCode').setAttribute('required', 'required');
+            }
         }
 
         function updateSpouseJobOptions() {
@@ -1001,7 +1043,7 @@
             const requiredFields = [
                 'gender', 'fullname', 'birthYear', 'birthMonth', 'birthDay',
                 'height', 'weight', 'religion', 'fatherJob', 'motherJob',
-                'skinColor', 'eyeColor', 'dressCode', 'jobType',
+                'skinColor', 'eyeColor', 'jobType',
                 'physicalStatus', 'smoking', 'familyCount', 'childOrder',
                 'province', 'city', 'neighborhood', 'phone1',
                 'personality', 'spouseCriteria', 'marriageHistory',
@@ -1014,6 +1056,16 @@
                 const el = document.getElementById(id);
                 if (!el || !el.value.trim()) {
                     showMessage(`❌ لطفاً فیلد "${el.previousElementSibling?.innerText?.trim() || id}" را پر کنید`, true);
+                    return;
+                }
+            }
+
+            // ===== اگر کاربر زن است، فیلد پوشش را بررسی کن =====
+            const gender = document.getElementById('gender').value;
+            if (gender === 'زن') {
+                const womenCover = document.getElementById('womenCover').value;
+                if (!womenCover) {
+                    showMessage('❌ لطفاً نوع پوشش خود را انتخاب کنید', true);
                     return;
                 }
             }
@@ -1038,6 +1090,7 @@
                 motherJob: document.getElementById('motherJob').value,
                 skinColor: document.getElementById('skinColor').value,
                 eyeColor: document.getElementById('eyeColor').value,
+                womenCover: document.getElementById('womenCover').value || '',
                 dressCode: document.getElementById('dressCode').value,
                 jobType: document.getElementById('jobType').value,
                 jobDesc: document.getElementById('jobDesc').value,
